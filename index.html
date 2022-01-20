@@ -20,13 +20,26 @@
     </header>
 
     <main>
-      <h1>Coding Quiz Challenge</h1>
+      <div class="parent-into">
+        <div class="into">
+          <h1>Coding Quiz Challenge</h1>
 
-      <p>
-        Test your knowledge of javascript by answering the following questions!
-      </p>
+          <p>
+            Test your knowledge of javascript by answering the following
+            questions!
+          </p>
 
-      <button>Start</button>
+          <button class="start-button">Start</button>
+        </div>
+      </div>
+
+      <div class="questions-div" style="display: none">
+        <p id="quiz-question"></p>
+        <button id="btn1" class="quiz-button"></button>
+        <button id="btn2" class="quiz-button"></button>
+        <button id="btn3" class="quiz-button"></button>
+        <button id="btn4" class="quiz-button"></button>
+      </div>
     </main>
 
     <script src="Assets/script.js"></script>
