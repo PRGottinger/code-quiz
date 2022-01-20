@@ -1,0 +1,33 @@
+body {
+  background-color: whitesmoke;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+
+header {
+  display: inline;
+}
+
+#view-scores {
+  color: rgb(207, 41, 207);
+  text-decoration: none;
+  text-align: left;
+  display: inline;
+}
+
+#timer {
+  color: black;
+  text-align: right;
+}
+
+main h1 {
+  text-align: center;
+}
+
+main p {
+  text-align: center;
+}
+
+button {
+  margin-left: 650px;
+}
