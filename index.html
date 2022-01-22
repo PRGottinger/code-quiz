@@ -15,7 +15,9 @@
         <a href="#" id="view-scores">View High Scores</a>
       </div>
       <div id="timer">
-        <p>Time:</p>
+        <p>Time: <span id="clock"></span></p>
+
+        <div id="clock1"></div>
       </div>
     </header>
 
@@ -39,6 +41,22 @@
         <button id="btn2" class="quiz-button"></button>
         <button id="btn3" class="quiz-button"></button>
         <button id="btn4" class="quiz-button"></button>
+      </div>
+
+      <div class="show-score" style="display: none">
+        <p>Please enter your initials</p>
+        <form onsubmit="highScore(event)">
+          <input
+            type="text"
+            name="initials"
+            placeholder="Enter Your Initials"
+          />
+          <button class="btn" id="save-initials" type="submit">Enter</button>
+        </form>
+      </div>
+
+      <div id="scoreContainer" style="">
+        <p id="finalScore"></p>
       </div>
     </main>
 

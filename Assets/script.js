@@ -2,23 +2,20 @@ var startbtn = document.querySelector(".start-button");
 var startQuestions = document.querySelector(".parent-into");
 var otherQuestions = document.querySelector(".questions-div");
 var questionText = document.querySelector("#quiz-question");
+var score = document.querySelector(".show-score");
 var button1 = document.querySelector("#btn1");
 var button2 = document.querySelector("#btn2");
 var button3 = document.querySelector("#btn3");
 var button4 = document.querySelector("#btn4");
 var currentIndex = 0;
-// var counter = 30;
+var counter = 30;
+var countdown;
+
 // var startCountdown = setInterval(countdown, 1000);
 
-// var countdown = setInterval(function () {
-//   counter--;
-//   if (counter === 0) {
-//     console.log("you lost!");
-//   }
-// };
-
-// function endGame() {
-
+// function highScore() {
+//   otherQuestions.style.display = "none";
+//   score.style.display = "block";
 // }
 
 function checkAnswer(event) {
@@ -31,6 +28,7 @@ function checkAnswer(event) {
     alert("that is correct");
   } else {
     alert("that is not correct");
+    counter -= 5;
   }
 
   currentIndex++;
@@ -90,13 +88,47 @@ var questions = [
   },
 ];
 
-// function startQuiz() {
-//   alert("start quiz");
-// }
+// let x = JSON.parse(localStorage.getItem("highScore"));
+// x.initials
+// x.score
+
+function highScore(event) {
+  event.preventDefault();
+  let score = counter;
+  let initials = event.target.children[0].value;
+  document.getElementById("finalScore").innerText = `${initials}    ${counter}`;
+
+  let finalScore = {
+    initials: initials,
+    score: score,
+  };
+
+  localStorage.setItem("highScore", JSON.stringify(finalScore));
+}
 
 startbtn.addEventListener("click", function () {
   startQuestions.style.display = "none";
   otherQuestions.style.display = "block";
+
+  countdown = setInterval(timer, 1000);
   nextQuestion();
-  countdown();
 });
+
+function timer() {
+  counter--;
+  // counter = 30;
+  clock.textContent = counter;
+
+  if (counter < 0) {
+    alert("Game Over! You Lost!");
+    clearInterval(countdown);
+    otherQuestions.style.display = "none";
+    score.style.display = "block";
+    counter = 0;
+    clock.textContent = counter;
+  }
+}
+
+function stopClock() {
+  clearInterval(countdown);
+}
