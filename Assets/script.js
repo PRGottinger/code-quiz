@@ -7,6 +7,19 @@ var button2 = document.querySelector("#btn2");
 var button3 = document.querySelector("#btn3");
 var button4 = document.querySelector("#btn4");
 var currentIndex = 0;
+// var counter = 30;
+// var startCountdown = setInterval(countdown, 1000);
+
+// var countdown = setInterval(function () {
+//   counter--;
+//   if (counter === 0) {
+//     console.log("you lost!");
+//   }
+// };
+
+// function endGame() {
+
+// }
 
 function checkAnswer(event) {
   console.log(event);
@@ -36,26 +49,44 @@ function nextQuestion() {
   button3.addEventListener("click", checkAnswer);
   button4.textContent = questions[currentIndex].answers[3];
   button4.addEventListener("click", checkAnswer);
+
+  // endGame();
 }
 
 var questions = [
   {
-    question:
-      "At the bottom of which HTML element is the best place to link to our Javascript file?",
+    question: "Where in our HTML do we link to our Javascript file?",
     answers: ["a. header", "b. footer", "c. script", "d. body"],
     correct: "d. body",
   },
 
   {
-    question: "this is the second question?",
-    answers: ["a. header", "b. footer", "c. script", "d. body"],
-    correct: "d. body",
+    question: "How do you comment in JavaScript?",
+    answers: ["a.  //This", "b. <!--This-->>", "c. !This", "d. This"],
+    correct: "a.  //This",
   },
 
   {
-    question: "this is the third question?",
-    answers: ["a. header", "b. footer", "c. script", "d. body"],
-    correct: "d. body",
+    question: "How do you declare a JavaScript variable?",
+    answers: [
+      "a. v catName",
+      "b. var catName",
+      "c. variable catName",
+      "d. MyCatVar",
+    ],
+    correct: "b. var catName",
+  },
+
+  {
+    question: "Inside which HTML element do we put the JavaScript?",
+    answers: ["a. <script> ", "b. <js> ", "c. <javascript> ", "d. style.js "],
+    correct: "a. <script> ",
+  },
+
+  {
+    question: "Which operator is used to assign a value to a variable?",
+    answers: ["a. * ", "b. = ", "c. + ", "d. - "],
+    correct: "b. = ",
   },
 ];
 
@@ -67,4 +98,5 @@ startbtn.addEventListener("click", function () {
   startQuestions.style.display = "none";
   otherQuestions.style.display = "block";
   nextQuestion();
+  countdown();
 });

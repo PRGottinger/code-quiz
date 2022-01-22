@@ -30,6 +30,13 @@ main {
   margin: auto;
 }
 
+.start-button {
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  height: 50px;
+  width: 125px;
+}
+
 .parent-intro {
   display: flex;
   align-content: center;
@@ -59,4 +66,17 @@ button {
   height: 35px;
   width: 70px;
   background-color: cornflowerblue;
+}
+
+.questions-div {
+  text-align: center;
+  align-items: center;
+  width: 100vh;
+}
+
+.quiz-button {
+  width: 150px;
+  height: 60px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: medium;
 }
