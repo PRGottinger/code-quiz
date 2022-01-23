@@ -36,7 +36,7 @@ function checkAnswer(event) {
   nextQuestion();
 }
 
-function nextQuestion() {
+function nextQuestion() 
   questionText.textContent = questions[currentIndex].question;
 
   button1.textContent = questions[currentIndex].answers[0];
@@ -47,9 +47,13 @@ function nextQuestion() {
   button3.addEventListener("click", checkAnswer);
   button4.textContent = questions[currentIndex].answers[3];
   button4.addEventListener("click", checkAnswer);
-
-  // endGame();
 }
+
+// function endGame() { 
+//   if (questionsIndex < questions.length - 1) {
+//     gameOver();
+// }
+// }
 
 var questions = [
   {
@@ -86,11 +90,17 @@ var questions = [
     answers: ["a. * ", "b. = ", "c. + ", "d. - "],
     correct: "b. = ",
   },
+
+  {
+    question: "Quiz Finished!",
+  },
 ];
 
-// let x = JSON.parse(localStorage.getItem("highScore"));
-// x.initials
-// x.score
+
+
+let x = JSON.parse(localStorage.getItem("highScore"));
+x.initials;
+x.score;
 
 function highScore(event) {
   event.preventDefault();
@@ -120,7 +130,7 @@ function timer() {
   clock.textContent = counter;
 
   if (counter < 0) {
-    alert("Game Over! You Lost!");
+    alert("Game Over! Enter Your Intials to see your Score");
     clearInterval(countdown);
     otherQuestions.style.display = "none";
     score.style.display = "block";
