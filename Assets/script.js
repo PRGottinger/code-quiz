@@ -36,24 +36,43 @@ function checkAnswer(event) {
   nextQuestion();
 }
 
-function nextQuestion() 
-  questionText.textContent = questions[currentIndex].question;
+function nextQuestion() {
+  if (currentIndex < questions.length - 1) {
+    questionText.textContent = questions[currentIndex].question;
 
-  button1.textContent = questions[currentIndex].answers[0];
-  button1.addEventListener("click", checkAnswer);
-  button2.textContent = questions[currentIndex].answers[1];
-  button2.addEventListener("click", checkAnswer);
-  button3.textContent = questions[currentIndex].answers[2];
-  button3.addEventListener("click", checkAnswer);
-  button4.textContent = questions[currentIndex].answers[3];
-  button4.addEventListener("click", checkAnswer);
+    button1.textContent = questions[currentIndex].answers[0];
+    button1.addEventListener("click", checkAnswer);
+    button2.textContent = questions[currentIndex].answers[1];
+    button2.addEventListener("click", checkAnswer);
+    button3.textContent = questions[currentIndex].answers[2];
+    button3.addEventListener("click", checkAnswer);
+    button4.textContent = questions[currentIndex].answers[3];
+    button4.addEventListener("click", checkAnswer);
+  } else {
+    otherQuestions.style.display = "none";
+    score.style.display = "block";
+    alert("You finished the quiz");
+    counter.style.display = "none";
+
+    highScore();
+  }
 }
 
-// function endGame() { 
+// function endGame() {
+//   if (counter >= 1 &&
+//     highScore();
+//   }
+// }
+
+// function gameOver() {
+//   otherQuestions.style.display = "none";
+// }
+
+// function endGame() {
 //   if (questionsIndex < questions.length - 1) {
 //     gameOver();
 // }
-// }
+//  }
 
 var questions = [
   {
@@ -96,9 +115,8 @@ var questions = [
   },
 ];
 
-
-
-let x = JSON.parse(localStorage.getItem("highScore"));
+var oldScores
+let oldScores = JSON.parse(localStorage.getItem("highScore"));
 x.initials;
 x.score;
 
