@@ -49,6 +49,7 @@ function nextQuestion() {
     button4.textContent = questions[currentIndex].answers[3];
     button4.addEventListener("click", checkAnswer);
   } else {
+    clearInterval(countdown);
     otherQuestions.style.display = "none";
     score.style.display = "block";
     alert("You finished the quiz");
@@ -115,23 +116,35 @@ var questions = [
   },
 ];
 
-var oldScores
-let oldScores = JSON.parse(localStorage.getItem("highScore"));
-x.initials;
-x.score;
+function scores() {
+  let oldScores = JSON.parse(localStorage.getItem("highScore"));
+  console.log(oldScores[0].initials);
+  console.log(oldScores[0].score);
+  console.log(JSON.parse(localStorage.getItem("highScore")));
+}
 
 function highScore(event) {
   event.preventDefault();
   let score = counter;
   let initials = event.target.children[0].value;
   document.getElementById("finalScore").innerText = `${initials}    ${counter}`;
-
+  let oldScores = JSON.parse(localStorage.getItem("highScore"));
   let finalScore = {
     initials: initials,
     score: score,
   };
 
-  localStorage.setItem("highScore", JSON.stringify(finalScore));
+  let allScores = [finalScore, ...oldScores];
+
+  oldScores.map((currElem, index) => {
+    let p = document.createElement("p");
+    p.innerText = `${currElem.initials}${currElem.score}`;
+    document.getElementById("scoreContainer").appendChild(p);
+  });
+
+  localStorage.setItem("highScore", JSON.stringify(allScores));
+
+  scores();
 }
 
 startbtn.addEventListener("click", function () {

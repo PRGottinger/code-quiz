@@ -95,7 +95,9 @@ button {
 }
 
 #finalScore {
+  display: flex;
+  align-content: center;
   text-align: center;
-  justify-content: center;
+  justify-content: left;
   padding-top: 200px;
 }
