@@ -18,7 +18,7 @@ Nothing special is required to get this development environment running.
 
 ## Usage
 
-You can find the portfolio landing page deployed [here]().
+You can find the portfolio landing page deployed [here](https://prgottinger.github.io/code-quiz/).
 
 ![Code Quiz Game](./assets/images/quiz.jpg)
 
